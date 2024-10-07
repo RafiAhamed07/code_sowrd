@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Main Blog Content -->
+        <div class="col-lg-8 col-md-12">
+            <h1 class="mb-3">{{ article.title }}</h1>
+            <h4 class="mb-4 text-secondary">{{ article.subtitle }}</h4>
+            <p class="text-muted">{{ article.pub_date }}</p>
+            <hr>
+            <div class="content mt-4">
+                {{ article.content|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Article Page Styles for Light and Dark Mode -->
+<style>
+    /* Card hover effect for sidebar */
+    .card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+
+    /* Styles for light and dark mode */
+    .light-mode .card {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    .dark-mode .card {
+        background-color: #343a40;
+        color: #f8f9fa;
+    }
+
+    /* Enhanced readability: spacing, margins, and padding */
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: calc(2rem + 1vw);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    h4 {
+        font-size: calc(1.25rem + 0.5vw);
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    /* Adjusting the font size of the content for better readability */
+    .content p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+
+    /* Adding some space between paragraphs */
+    .content p + p {
+        margin-top: 1.5rem;
+    }
+
+    /* Light and dark mode adjustments */
+    .light-mode h1, .light-mode h4 {
+        color: #212529;
+    }
+
+    .dark-mode h1, .dark-mode h4 {
+        color: #f8f9fa;
+    }
+
+    /* Extra padding for mobile devices */
+    @media (max-width: 767px) {
+        .container {
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        .content p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+{% endblock %}

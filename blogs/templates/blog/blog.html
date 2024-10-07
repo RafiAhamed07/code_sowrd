@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Blogs
+{% endblock %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <h1>Blogs</h1>
+    <p class="lead">Hello! I'm Rafi, a passionate developer and blogger. I write blogs about programming...</p>
+    <hr class="my-4">
+    
+    <!-- Blog Cards Section -->
+    <div class="row justify-content-center">
+        {% for article in articles %}
+        <!-- Full width column for vertical card placement -->
+        <div class="col-12 mb-4 d-flex justify-content-center">
+            <div class="card w-75 shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.subtitle }}</p>
+                    <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">No articles have been posted yet.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Styles for light and dark mode support -->
+<style>
+    .card {
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 10px; /* Rounded corners */
+    }
+
+    /* Light mode styles */
+    .light-mode .card {
+        background-color: #ffffff;
+        color: #000000;
+        border: 1px solid #e0e0e0; /* Subtle border for light mode */
+    }
+
+    .light-mode .card-title {
+        color: #343a40; /* Darker color for title */
+    }
+
+    .light-mode .card-text {
+        color: #6c757d; /* Light gray for text */
+    }
+
+    /* Dark mode styles */
+    .dark-mode .card {
+        background-color: #343a40;
+        color: #f8f9fa;
+        border: 1px solid #454d55; /* Subtle border for dark mode */
+    }
+
+    .dark-mode .card-title {
+        color: #f8f9fa;
+    }
+
+    .dark-mode .card-text {
+        color: #ced4da;
+    }
+
+    /* Card hover effect */
+    .card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Hover shadow */
+    }
+</style>
+
+{% endblock %}

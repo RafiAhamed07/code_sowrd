@@ -1,0 +1,44 @@
+/* styles.css */
+
+body.light-mode {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+body.dark-mode {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+.navbar-light {
+  background-color: #f8f9fa;
+}
+
+.navbar-dark {
+  background-color: #343a40;
+}
+
+.footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1, h3, h4, .lead {
+  letter-spacing: 0.5px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.btn {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}

@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="font-family: 'Roboto Mono', monospace;">
+    <div class="row">
+        <!-- Left side with image -->
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center mb-4">
+            <img src="{% static 'assets/about1.JPG' %}" class="img-fluid rounded-circle shadow-lg" alt="Rafi Ahamed's Image">
+        </div>
+        
+        <!-- Right side with details -->
+        <div class="col-lg-8 col-md-6 col-sm-12 d-flex flex-column justify-content-center">
+            <h2 class="display-4 font-weight-bold mb-3">Hi 👋, I'm <strong>Rafi Ahamed</strong></h2>
+            <h4 class="text-muted">Engineering Student & AI Enthusiast</h4>
+            <p class="lead text-muted">I've been on an exciting adventure in the world of technology for the last 4 years...</p>
+            <div class="mt-4 d-flex flex-wrap">
+                <a href="https://docs.google.com/document/d/1iRvfIT0DkHEd6O1ziuCoeVk-bbdjniWQijzTtOWGjqU/edit" target="_blank" class="btn btn-outline-secondary btn-lg my-2 mr-3">
+                    📄 View My Resume
+                </a>
+                <a href="https://rafiahamed.netlify.app/" target="_blank" class="btn btn-outline-primary btn-lg my-2">
+                    🌐 Visit My Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Welcome Section -->
+    <div class="mt-5 text-center">
+        <h3 class="display-4 font-weight-bold">Welcome to My Blog!</h3>
+        <div class="lead mt-4 px-4">
+            <h4 class="font-weight-bold">Hello there! 🌟</h4>
+            <p>I’m thrilled to have you here on my blog, where I share my thoughts, insights, and experiences in the world of technology and beyond. As a passionate engineering student with a deep interest in Artificial Intelligence, I explore the latest trends, innovative ideas, and practical knowledge that can inspire and empower us all.</p>
+            
+            <p>Feel free to browse through my posts, engage with the content, and share your thoughts in the comments. Your feedback and interaction are what make this community special!</p>
+            
+            <p class="font-italic font-weight-light">Let’s embark on this exciting journey together, and remember: learning is a continuous adventure! 📖✨</p>
+
+            <a href="{% url 'blog' %}" target="_blank" class="btn btn-outline-primary btn-lg my-4">
+                Read My Blogs
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Styles for light and dark mode support -->
+<style>
+    .card {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Light mode styles */
+    .light-mode {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    .light-mode h2, .light-mode h4, .light-mode p {
+        color: #343a40;
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+        background-color: #343a40;
+        color: #f8f9fa;
+    }
+
+    .dark-mode h2, .dark-mode h4, .dark-mode p {
+        color: #ced4da;
+    }
+
+    /* Image hover effect */
+    img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    /* Text hover effect for resume and portfolio buttons */
+    .btn:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+</style>
+
+{% endblock %}

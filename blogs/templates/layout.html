@@ -1,0 +1,173 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        CodeSword
+        {% endblock %}
+    </title>
+
+    <!-- Bootstrap and Custom Stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .navbar {
+            background-color: #EAECD6;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+            transform: translateY(-3px);
+        }
+
+        .nav-link::after {
+            content: "";
+            width: 0;
+            height: 2px;
+            background-color: #007bff;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Dark Mode Button */
+        .toggle-btn {
+            border: 2px solid #333;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Mobile toggler style */
+        .navbar-toggler-icon {
+            color: #333;
+        }
+
+
+            /* Base styles for the footer */
+            footer {
+                background-color: #f8f9fa;
+                padding: 20px;
+                font-size: 14px;
+            }
+        
+            /* Link color */
+            footer a {
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+        
+            footer a:hover {
+                color: #007bff; /* Color on hover */
+            }
+        
+            /* Light mode text color */
+            .light-mode footer {
+                color: #dbdbdb;
+                background-color: #75787c;
+            }
+            /* Dark mode text color */
+            .dark-mode footer {
+                color: #f8f9fa; /* White text for dark mode */
+                background-color: #343a40; /* Optional: Dark background */
+            }
+    </style>
+</head>
+<body class="light-mode">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-sark shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold" href="{% url 'home' %}">
+                <i class="fas fa-code"></i> CodeSword
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog' %}"><i class="fas fa-blog"></i> Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-secondary toggle-btn" id="theme-toggle">
+                            <i class="fas fa-adjust"></i> Switch to Dark Mode
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Main Content Section -->
+    <div class="container my-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <!-- Footer Section -->
+<footer class="text-center py-4">
+    <p>&copy; 2024 Rafi's Blog. All rights reserved.</p>
+    <p>
+        <a href="mailto:fidahamed15@gmail.com">fidahamed15@gmail.com</a> || 
+        <a href="mailto:fidahamed16@gmail.com">fidahamed16@gmail.com</a>
+        <p>Follow me on: 
+            <a href="https://linkedin.com/in/rafi-ahamed-88b1a52a0" >LinkedIn</a> |
+            <a href="https://instagram.com/rafi_ahamed_fida" >Instagram</a> |
+            <a href="https://github.com/RafiAhamed07" >GitHub</a>
+        </p>
+
+    </p>
+</footer>
+
+<!-- CSS for Light and Dark Mode Footer -->
+
+
+
+    <!-- JavaScript and Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
